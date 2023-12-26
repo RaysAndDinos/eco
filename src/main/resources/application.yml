@@ -1,0 +1,20 @@
+spring:
+  profiles:
+    active: main
+  datasource:
+    url: jdbc:mysql://localhost:13306/hr
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:db/hr-schema-mysql.sql
