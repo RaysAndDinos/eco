@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.ecoandrich.persistence.EmployeeMapper">
+
+    <select id="findDetailById" resultType="EmployeeDetail">
+        select e.employee_id, e.first_name, e.last_name, e.email, e.phone_number, e.hire_date,
+               e.salary, e.commission_pct, d.department_name, j.job_title
+        from employees e
+                 left join departments d on e.employee_id = d.manager_id
+                 left join jobs j on j.job_id = e.job_id
+        where e.employee_id = #{employeeId}
+    </select>
+</mapper>
