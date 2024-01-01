@@ -37,7 +37,7 @@ class EmployeeControllerTest {
         // when
         ExtractableResponse<Response> response = given().log().all()
                 .contentType(JSON)
-                .get("/employee/{employeeId}", EMPLOYEE_ID)
+                .get("/employees/{employeeId}", EMPLOYEE_ID)
                 .then()
                 .log().all()
                 .extract();
