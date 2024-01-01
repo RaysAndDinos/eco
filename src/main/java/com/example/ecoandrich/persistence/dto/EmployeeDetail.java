@@ -1,4 +1,4 @@
-package com.example.ecoandrich.persistence;
+package com.example.ecoandrich.persistence.dto;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

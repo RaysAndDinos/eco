@@ -1,4 +1,4 @@
-package com.example.ecoandrich.api;
+package com.example.ecoandrich.api.dto;
 
 import java.math.BigDecimal;
 

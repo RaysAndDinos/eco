@@ -1,6 +1,6 @@
-package com.example.ecoandrich.api;
+package com.example.ecoandrich.api.dto;
 
-import com.example.ecoandrich.persistence.EmployeeUpdateCommand;
+import com.example.ecoandrich.persistence.dto.EmployeeUpdateCommand;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 

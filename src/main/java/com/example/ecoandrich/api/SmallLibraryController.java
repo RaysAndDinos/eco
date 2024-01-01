@@ -1,8 +1,8 @@
 package com.example.ecoandrich.api;
 
-import com.example.ecoandrich.dto.PageInformation;
-import com.example.ecoandrich.dto.SmallLibraryPublicApiResponse;
 import com.example.ecoandrich.service.SmallLibraryService;
+import com.example.ecoandrich.service.dto.PageInformation;
+import com.example.ecoandrich.service.dto.SmallLibraryPublicApiResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.constraints.Min;

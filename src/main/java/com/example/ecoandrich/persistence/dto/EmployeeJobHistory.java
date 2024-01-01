@@ -1,4 +1,4 @@
-package com.example.ecoandrich.persistence;
+package com.example.ecoandrich.persistence.dto;
 
 import java.time.LocalDate;
 import java.util.List;

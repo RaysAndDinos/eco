@@ -1,7 +1,7 @@
 package com.example.ecoandrich.service;
 
-import com.example.ecoandrich.dto.PageInformation;
-import com.example.ecoandrich.dto.SmallLibraryPublicApiResponse;
+import com.example.ecoandrich.service.dto.PageInformation;
+import com.example.ecoandrich.service.dto.SmallLibraryPublicApiResponse;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;

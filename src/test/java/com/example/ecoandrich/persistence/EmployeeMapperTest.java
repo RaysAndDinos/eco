@@ -3,6 +3,9 @@ package com.example.ecoandrich.persistence;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatNoException;
 
+import com.example.ecoandrich.persistence.dto.EmployeeDetail;
+import com.example.ecoandrich.persistence.dto.EmployeeJobHistory;
+import com.example.ecoandrich.persistence.dto.EmployeeUpdateCommand;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Optional;

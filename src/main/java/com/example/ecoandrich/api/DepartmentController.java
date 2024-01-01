@@ -1,8 +1,8 @@
 package com.example.ecoandrich.api;
 
 
-import com.example.ecoandrich.persistence.DepartmentLocationResponse;
 import com.example.ecoandrich.persistence.DepartmentMapper;
+import com.example.ecoandrich.persistence.dto.DepartmentLocationResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.constraints.Min;

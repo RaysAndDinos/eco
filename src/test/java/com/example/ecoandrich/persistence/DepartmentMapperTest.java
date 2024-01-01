@@ -2,6 +2,7 @@ package com.example.ecoandrich.persistence;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import com.example.ecoandrich.persistence.dto.DepartmentLocationResponse;
 import java.util.List;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator.ReplaceUnderscores;

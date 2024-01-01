@@ -5,7 +5,7 @@ import static io.restassured.http.ContentType.JSON;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertAll;
 
-import com.example.ecoandrich.persistence.EmployeeDetail;
+import com.example.ecoandrich.persistence.dto.EmployeeDetail;
 import io.restassured.RestAssured;
 import io.restassured.response.ExtractableResponse;
 import io.restassured.response.Response;

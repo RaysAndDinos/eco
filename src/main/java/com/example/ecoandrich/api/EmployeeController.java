@@ -1,9 +1,11 @@
 package com.example.ecoandrich.api;
 
 
-import com.example.ecoandrich.persistence.EmployeeDetail;
-import com.example.ecoandrich.persistence.EmployeeJobHistory;
+import com.example.ecoandrich.api.dto.EmployeeSalaryUpdateRequest;
+import com.example.ecoandrich.api.dto.EmployeeUpdateRequest;
 import com.example.ecoandrich.persistence.EmployeeMapper;
+import com.example.ecoandrich.persistence.dto.EmployeeDetail;
+import com.example.ecoandrich.persistence.dto.EmployeeJobHistory;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;

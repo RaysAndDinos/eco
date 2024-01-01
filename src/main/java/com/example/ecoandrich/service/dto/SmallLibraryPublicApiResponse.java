@@ -1,4 +1,4 @@
-package com.example.ecoandrich.dto;
+package com.example.ecoandrich.service.dto;
 
 
 import java.util.List;

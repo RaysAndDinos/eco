@@ -1,26 +1,18 @@
 package com.example.ecoandrich.service;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertAll;
 
-import com.example.ecoandrich.dto.PageInformation;
-import com.example.ecoandrich.dto.SmallLibraryPublicApiResponse;
-import com.example.ecoandrich.dto.SmallLibraryPublicApiResponse.SmallLibraryInformation;
+import com.example.ecoandrich.service.dto.PageInformation;
+import com.example.ecoandrich.service.dto.SmallLibraryPublicApiResponse;
+import com.example.ecoandrich.service.dto.SmallLibraryPublicApiResponse.SmallLibraryInformation;
 import java.util.List;
-import java.util.Map;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator.ReplaceUnderscores;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.client.RestTemplate;
-import org.springframework.web.util.UriComponents;
-import org.springframework.web.util.UriComponentsBuilder;
 
 @DisplayNameGeneration(ReplaceUnderscores.class)
 @SuppressWarnings("NonAsciiCharacters")

@@ -1,4 +1,4 @@
-package com.example.ecoandrich.persistence;
+package com.example.ecoandrich.persistence.dto;
 
 import lombok.Getter;
 
