@@ -2,6 +2,7 @@ package com.example.ecoandrich.api;
 
 
 import com.example.ecoandrich.persistence.EmployeeDetail;
+import com.example.ecoandrich.persistence.EmployeeJobHistory;
 import com.example.ecoandrich.persistence.EmployeeMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -23,5 +24,12 @@ public class EmployeeController {
         EmployeeDetail employeeDetail = employeeMapper.findDetailById(employeeId)
                 .orElseThrow(IllegalArgumentException::new);
         return ResponseEntity.ok(employeeDetail);
+    }
+
+    @GetMapping("/{employeeId}/job-history")
+    public ResponseEntity<EmployeeJobHistory> getEmployeeJobHistory(@PathVariable Integer employeeId) {
+        EmployeeJobHistory employeeJobHistory = employeeMapper.findJobHistoryById(employeeId)
+                .orElseThrow(IllegalArgumentException::new);
+        return ResponseEntity.ok(employeeJobHistory);
     }
 }

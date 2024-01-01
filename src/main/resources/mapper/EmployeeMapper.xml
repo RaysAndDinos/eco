@@ -11,4 +11,31 @@
                  left join jobs j on j.job_id = e.job_id
         where e.employee_id = #{employeeId}
     </select>
+
+    <resultMap id="EmployeeJobHistoryResultMap" type="EmployeeJobHistory">
+        <id property="employeeId" column="employee_id"/>
+        <result property="firstName" column="first_name"/>
+        <result property="lastName" column="last_name"/>
+        <result property="email" column="email"/>
+        <result property="phoneNumber" column="phone_number"/>
+        <result property="hireDate" column="hire_date"/>
+        <collection property="jobHistories" ofType="JobHistoryInformation"
+                    resultMap="JobHistoryInformationResultMap"/>
+    </resultMap>
+
+    <resultMap id="JobHistoryInformationResultMap" type="JobHistoryInformation">
+        <result property="jobTitle" column="job_title"/>
+        <result property="startDate" column="start_date"/>
+        <result property="endDate" column="end_date"/>
+    </resultMap>
+
+    <select id="findJobHistoryById" resultMap="EmployeeJobHistoryResultMap">
+        select e.employee_id, e.first_name, e.last_name, e.email, e.phone_number,
+               e.hire_date, j.job_title, jh.start_date, jh.end_date
+        from employees e
+                 left join job_history jh on e.employee_id = jh.employee_id
+                 left join jobs j on jh.job_id = j.job_id
+        where e.employee_id = #{employeeId}
+        order by jh.start_date desc
+    </select>
 </mapper>

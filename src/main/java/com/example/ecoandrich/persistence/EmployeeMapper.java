@@ -7,4 +7,6 @@ import org.apache.ibatis.annotations.Mapper;
 public interface EmployeeMapper {
 
     Optional<EmployeeDetail> findDetailById(Integer employeeId);
+
+    Optional<EmployeeJobHistory> findJobHistoryById(Integer employeeId);
 }
