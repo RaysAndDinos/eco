@@ -38,4 +38,10 @@
         where e.employee_id = #{employeeId}
         order by jh.start_date desc
     </select>
+
+    <update id="updateSalaryByDepartmentIdAndRate">
+        update employees e
+        set e.salary = e.salary * #{rate}
+        where department_id = #{departmentId}
+    </update>
 </mapper>

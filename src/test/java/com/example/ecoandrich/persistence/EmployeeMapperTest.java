@@ -1,7 +1,9 @@
 package com.example.ecoandrich.persistence;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatNoException;
 
+import java.math.BigDecimal;
 import java.util.Optional;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator.ReplaceUnderscores;
@@ -51,5 +53,13 @@ class EmployeeMapperTest {
             // then
             assertThat(actual.getJobHistories()).hasSize(2);
         }
+    }
+
+    @Test
+    void 임금_인상을_정상적으로_실행한다() {
+        // when && then
+        assertThatNoException().isThrownBy(
+                () -> employeeMapper.updateSalaryByDepartmentIdAndRate(90, new BigDecimal(1.2))
+        );
     }
 }

@@ -6,10 +6,14 @@ import com.example.ecoandrich.persistence.EmployeeJobHistory;
 import com.example.ecoandrich.persistence.EmployeeMapper;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
+import java.math.BigDecimal;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -36,5 +40,20 @@ public class EmployeeController {
         EmployeeJobHistory employeeJobHistory = employeeMapper.findJobHistoryById(employeeId)
                 .orElseThrow(IllegalArgumentException::new);
         return ResponseEntity.ok(employeeJobHistory);
+    }
+
+    @PatchMapping("/increase-salary")
+    @Operation(description = "사원의 부서를 통해 급여를 인상한다")
+    public ResponseEntity<Void> increaseSalaryByDepartment(@RequestBody @Valid EmployeeSalaryUpdateRequest request) {
+        employeeMapper.updateSalaryByDepartmentIdAndRate(
+                request.departmentId(),
+                getIncreaseRatio(request.increaseRate())
+        );
+
+        return ResponseEntity.noContent().build();
+    }
+
+    private BigDecimal getIncreaseRatio(BigDecimal percentage) {
+        return percentage.divide(new BigDecimal(100)).add(BigDecimal.ONE);
     }
 }
