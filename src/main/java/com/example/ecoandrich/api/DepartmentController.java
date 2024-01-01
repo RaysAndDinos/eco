@@ -3,6 +3,8 @@ package com.example.ecoandrich.api;
 
 import com.example.ecoandrich.persistence.DepartmentLocationResponse;
 import com.example.ecoandrich.persistence.DepartmentMapper;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.constraints.Min;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/department")
 @RequiredArgsConstructor
+@Tag(name = "부서 정보 요청")
 public class DepartmentController {
 
     private static final int DEFAULT_PAGE_SIZE = 10;
@@ -23,6 +26,7 @@ public class DepartmentController {
     private final DepartmentMapper departmentMapper;
 
     @GetMapping
+    @Operation(description = "부서 정보를 페이징하여 조회한다.")
     public ResponseEntity<List<DepartmentLocationResponse>> getEmployeeDetail(
             @RequestParam(defaultValue = "1") @Min(1) Integer page
     ) {
