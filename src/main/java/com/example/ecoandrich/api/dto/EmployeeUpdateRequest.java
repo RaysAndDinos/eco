@@ -1,6 +1,7 @@
 package com.example.ecoandrich.api.dto;
 
 import com.example.ecoandrich.persistence.dto.EmployeeUpdateCommand;
+import jakarta.validation.constraints.DecimalMax;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
@@ -12,6 +13,7 @@ public record EmployeeUpdateRequest(
         LocalDate hireDate,
         String jobId,
         BigDecimal salary,
+        @DecimalMax(value = "1", inclusive = false)
         BigDecimal commissionPct,
         Integer managerId,
         Integer departmentId

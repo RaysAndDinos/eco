@@ -49,7 +49,7 @@ public class EmployeeController {
     @Operation(description = "사원의 정보를 수정한다.")
     public ResponseEntity<Void> updateEmployeeInformation(
             @PathVariable Integer employeeId,
-            @RequestBody EmployeeUpdateRequest request
+            @RequestBody @Valid EmployeeUpdateRequest request
     ) {
         employeeMapper.updateById(employeeId, request.toCommand());
         return ResponseEntity.noContent().build();
@@ -57,7 +57,7 @@ public class EmployeeController {
 
     @PatchMapping("/increase-salary")
     @Operation(description = "사원의 부서를 통해 급여를 인상한다")
-    public ResponseEntity<Void> increaseSalaryByDepartment(@RequestBody @Valid EmployeeSalaryUpdateRequest request) {
+    public ResponseEntity<Void> increaseSalaryByDepartment(@RequestBody EmployeeSalaryUpdateRequest request) {
         employeeMapper.updateSalaryByDepartmentIdAndRate(
                 request.departmentId(),
                 getIncreaseRatio(request.increaseRate())
