@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/employees")
 @RequiredArgsConstructor
-@Tag(name = "사원 정보 요청")
+@Tag(name = "사원 API")
 public class EmployeeController {
 
     private final EmployeeMapper employeeMapper;
@@ -40,6 +41,16 @@ public class EmployeeController {
         EmployeeJobHistory employeeJobHistory = employeeMapper.findJobHistoryById(employeeId)
                 .orElseThrow(IllegalArgumentException::new);
         return ResponseEntity.ok(employeeJobHistory);
+    }
+
+    @PutMapping("/{employeeId}")
+    @Operation(description = "사원의 정보를 수정한다.")
+    public ResponseEntity<Void> updateEmployeeInformation(
+            @PathVariable Integer employeeId,
+            @RequestBody EmployeeUpdateRequest request
+    ) {
+        employeeMapper.updateById(employeeId, request.toCommand());
+        return ResponseEntity.noContent().build();
     }
 
     @PatchMapping("/increase-salary")

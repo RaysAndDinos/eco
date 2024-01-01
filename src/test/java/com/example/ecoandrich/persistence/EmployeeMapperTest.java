@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatNoException;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Optional;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator.ReplaceUnderscores;
@@ -42,17 +43,13 @@ class EmployeeMapperTest {
         }
     }
 
-    @Nested
-    class 사원_이력_조회 {
+    @Test
+    void 사원_이력을_정상적으로_조회한다() {
+        // given
+        EmployeeJobHistory actual = employeeMapper.findJobHistoryById(101).get();
 
-        @Test
-        void 정상적으로_이력을_조회한다() {
-            // given
-            EmployeeJobHistory actual = employeeMapper.findJobHistoryById(101).get();
-
-            // then
-            assertThat(actual.getJobHistories()).hasSize(2);
-        }
+        // then
+        assertThat(actual.getJobHistories()).hasSize(2);
     }
 
     @Test
@@ -60,6 +57,28 @@ class EmployeeMapperTest {
         // when && then
         assertThatNoException().isThrownBy(
                 () -> employeeMapper.updateSalaryByDepartmentIdAndRate(90, new BigDecimal(1.2))
+        );
+    }
+
+    @Test
+    void 사원_변경을_정상적으로_실행한다() {
+        // given
+        EmployeeUpdateCommand command = new EmployeeUpdateCommand(
+                "junsu",
+                "park",
+                "parkJunsu@naver.com",
+                "010-xxxx-xxxx",
+                LocalDate.now(),
+                "IT_PROG",
+                BigDecimal.ONE,
+                new BigDecimal(0.5),
+                100,
+                100
+        );
+
+        // when && then
+        assertThatNoException().isThrownBy(
+                () -> employeeMapper.updateById(100, command)
         );
     }
 }

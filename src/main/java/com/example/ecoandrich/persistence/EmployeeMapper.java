@@ -11,5 +11,7 @@ public interface EmployeeMapper {
 
     Optional<EmployeeJobHistory> findJobHistoryById(Integer employeeId);
 
+    void updateById(Integer employeeId, EmployeeUpdateCommand command);
+
     void updateSalaryByDepartmentIdAndRate(Integer departmentId, BigDecimal rate);
 }
