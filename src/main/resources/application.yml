@@ -1,15 +1,13 @@
 spring:
   profiles:
     active: main
-  datasource:
-    url: jdbc:mysql://localhost:13306/hr
-    username: root
-    password: root
-    driver-class-name: com.mysql.cj.jdbc.Driver
   sql:
     init:
       mode: always
       schema-locations: classpath:db/hr-schema-mysql.sql
+  config:
+    import:
+      - classpath:application-db.yml
 mybatis:
   configuration:
     map-underscore-to-camel-case: true
